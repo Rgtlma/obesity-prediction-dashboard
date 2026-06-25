@@ -14,24 +14,26 @@ st.set_page_config(
     layout="wide"
 )
 
-# ==========================
-# CUSTOM CSS
-# ==========================
-
 st.markdown("""
 <style>
 
-/* Background utama */
-.stApp {
+/* ==========================
+   BACKGROUND
+========================== */
+
+.stApp{
     background: linear-gradient(
         135deg,
-        #EFF6FF,
-        #F8FAFC
+        #F1F5F9 0%,
+        #E2E8F0 100%
     );
 }
 
-/* Sidebar */
-[data-testid="stSidebar"] {
+/* ==========================
+   SIDEBAR
+========================== */
+
+[data-testid="stSidebar"]{
     background: linear-gradient(
         180deg,
         #2563EB,
@@ -39,62 +41,138 @@ st.markdown("""
     );
 }
 
-/* Tulisan sidebar */
-[data-testid="stSidebar"] * {
-    color: white;
+[data-testid="stSidebar"] *{
+    color:white;
 }
 
-/* Card */
-div[data-testid="metric-container"] {
-    background-color: white;
-    border-radius: 15px;
-    padding: 15px;
-    box-shadow: 0px 4px 15px rgba(0,0,0,0.08);
+/* ==========================
+   TITLE
+========================== */
+
+h1{
+    color:#1E3A8A !important;
+    font-weight:700 !important;
 }
 
-/* Judul */
-h1 {
-    color: #1E3A8A;
+h2,h3{
+    color:#1F2937 !important;
 }
 
-/* Semua teks utama */
-p, label, span, div {
-    color: #1F2937 !important;
+/* ==========================
+   TEXT
+========================== */
+
+p{
+    color:#374151;
 }
 
-/* Subheader */
-h2, h3 {
-    color: #1E3A8A !important;
+label{
+    color:#111827 !important;
 }
 
-/* Isi markdown */
-[data-testid="stMarkdownContainer"] {
-    color: #1F2937 !important;
+/* ==========================
+   METRIC CARD
+========================== */
+
+div[data-testid="metric-container"]{
+
+    background:white;
+
+    border-radius:18px;
+
+    padding:20px;
+
+    border:1px solid #E5E7EB;
+
+    box-shadow:
+    0px 4px 20px rgba(
+        0,0,0,0.05
+    );
+
 }
 
-/* Metric */
-[data-testid="metric-container"] label {
-    color: #6B7280 !important;
+/* ==========================
+   DATAFRAME
+========================== */
+
+[data-testid="stDataFrame"]{
+
+    border-radius:15px;
+
+    overflow:hidden;
+
+    border:1px solid #E5E7EB;
+
 }
 
-[data-testid="metric-container"] div {
-    color: #111827 !important;
+/* ==========================
+   BUTTON
+========================== */
+
+.stButton button{
+
+    background:
+    linear-gradient(
+        90deg,
+        #2563EB,
+        #0EA5E9
+    );
+
+    color:white;
+
+    border:none;
+
+    border-radius:12px;
+
+    height:50px;
+
+    font-weight:bold;
+
 }
 
-/* Input box */
-.stTextInput label,
-.stNumberInput label,
-.stSelectbox label,
-.stSlider label {
-    color: #1F2937 !important;
+.stButton button:hover{
+
+    background:
+    linear-gradient(
+        90deg,
+        #1D4ED8,
+        #0284C7
+    );
+
+    color:white;
+
 }
 
-/* Tombol */
-.stButton button {
-    background-color: #2563EB;
-    color: white;
-    border-radius: 10px;
-    border: none;
+/* ==========================
+   INFO BOX
+========================== */
+
+[data-testid="stAlert"]{
+
+    border-radius:12px;
+
+}
+
+/* ==========================
+   INPUT
+========================== */
+
+.stNumberInput,
+.stSelectbox,
+.stSlider{
+
+    background:white;
+
+    border-radius:12px;
+
+}
+
+/* ==========================
+   HIDE STREAMLIT FOOTER
+========================== */
+
+footer{
+    visibility:hidden;
 }
 
 </style>
@@ -339,28 +417,6 @@ elif menu == "🤖 Model Performance":
         height=500
     )
 
-    fig.update_layout(
-
-        font=dict(
-            color="#1F2937"
-        ),
-    
-        xaxis=dict(
-            title_font=dict(color="#1F2937"),
-            tickfont=dict(color="#1F2937")
-        ),
-    
-        yaxis=dict(
-            title_font=dict(color="#1F2937"),
-            tickfont=dict(color="#1F2937")
-        ),
-    
-        coloraxis_colorbar=dict(
-            title_font=dict(color="#1F2937"),
-            tickfont=dict(color="#1F2937")
-        )
-    )
-
     fig.update_traces(
         textposition="outside"
     )
@@ -499,7 +555,7 @@ elif menu == "📈 Feature Importance":
 
     fig.update_layout(
 
-        template="plotly_white",
+        template="plotly",
 
         title="Faktor yang Paling Berpengaruh",
 
@@ -513,13 +569,38 @@ elif menu == "📈 Feature Importance":
 
     )
 
-    fig.update_traces(
-        texttemplate="%{text:.3f}",
-        textposition="outside",
-        textfont=dict(
-            color="#1F2937",
-            size=14
+    fig.update_layout(
+
+        font=dict(
+            color="#1F2937"
+        ),
+
+        xaxis=dict(
+            title_font=dict(color="#1F2937"),
+            tickfont=dict(color="#1F2937")
+        ),
+
+        yaxis=dict(
+            title_font=dict(color="#1F2937"),
+            tickfont=dict(color="#1F2937")
+        ),
+
+        coloraxis_colorbar=dict(
+            title_font=dict(color="#1F2937"),
+            tickfont=dict(color="#1F2937")
         )
+    )
+
+    fig.update_layout(
+        font=dict(color="#111827")
+    )
+
+    fig.update_traces(
+
+        texttemplate="%{text:.3f}",
+
+        textposition="outside"
+
     )
 
     st.plotly_chart(
