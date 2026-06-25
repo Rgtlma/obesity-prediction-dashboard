@@ -514,11 +514,12 @@ elif menu == "📈 Feature Importance":
     )
 
     fig.update_traces(
-
         texttemplate="%{text:.3f}",
-
-        textposition="outside"
-
+        textposition="outside",
+        textfont=dict(
+            color="#1F2937",
+            size=14
+        )
     )
 
     st.plotly_chart(
