@@ -57,6 +57,46 @@ h1 {
     color: #1E3A8A;
 }
 
+/* Semua teks utama */
+p, label, span, div {
+    color: #1F2937 !important;
+}
+
+/* Subheader */
+h2, h3 {
+    color: #1E3A8A !important;
+}
+
+/* Isi markdown */
+[data-testid="stMarkdownContainer"] {
+    color: #1F2937 !important;
+}
+
+/* Metric */
+[data-testid="metric-container"] label {
+    color: #6B7280 !important;
+}
+
+[data-testid="metric-container"] div {
+    color: #111827 !important;
+}
+
+/* Input box */
+.stTextInput label,
+.stNumberInput label,
+.stSelectbox label,
+.stSlider label {
+    color: #1F2937 !important;
+}
+
+/* Tombol */
+.stButton button {
+    background-color: #2563EB;
+    color: white;
+    border-radius: 10px;
+    border: none;
+}
+
 </style>
 """, unsafe_allow_html=True)
 
