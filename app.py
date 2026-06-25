@@ -339,6 +339,28 @@ elif menu == "🤖 Model Performance":
         height=500
     )
 
+    fig.update_layout(
+
+        font=dict(
+            color="#1F2937"
+        ),
+    
+        xaxis=dict(
+            title_font=dict(color="#1F2937"),
+            tickfont=dict(color="#1F2937")
+        ),
+    
+        yaxis=dict(
+            title_font=dict(color="#1F2937"),
+            tickfont=dict(color="#1F2937")
+        ),
+    
+        coloraxis_colorbar=dict(
+            title_font=dict(color="#1F2937"),
+            tickfont=dict(color="#1F2937")
+        )
+    )
+
     fig.update_traces(
         textposition="outside"
     )
