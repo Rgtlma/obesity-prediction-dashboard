@@ -323,7 +323,7 @@ elif menu == "📊 EDA":
     )
 
     fig2 = px.scatter(
-        df,
+        filtered_df,
         x="Weight",
         y="Height",
         color="NObeyesdad",
